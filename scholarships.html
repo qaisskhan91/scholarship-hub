@@ -17,17 +17,89 @@
 
 <div class="container">
 
-<h1>🎓 Scholarships Page Working</h1>
+<h1>🎓 Latest Scholarships</h1>
 
-<p>If you can see this text, your page is fixed.</p>
+<!-- SEARCH -->
+<input type="text" onkeyup="searchScholarships(this.value)" placeholder="Search scholarships..." class="search-box">
 
-<div class="card">
-<h3>Test Scholarship</h3>
-<p>This is a test card.</p>
-<a class="btn" href="#">Apply Now</a>
+<!-- COUNTRY FILTER -->
+<div style="margin:10px 0;">
+<button onclick="filterCountry('all')">All</button>
+<button onclick="filterCountry('UK')">UK</button>
+<button onclick="filterCountry('USA')">USA</button>
+<button onclick="filterCountry('Germany')">Germany</button>
+<button onclick="filterCountry('Europe')">Europe</button>
 </div>
 
+<!-- RESULTS -->
+<div id="scholarshipList">Loading scholarships...</div>
+
 </div>
+
+<script>
+let allData = [];
+
+// LOAD JSON DATA
+fetch("scholarships.json")
+.then(res => res.json())
+.then(data => {
+    allData = data;
+    display(allData);
+})
+.catch(error => {
+    document.getElementById("scholarshipList").innerHTML =
+    "<p style='color:red;'>Error loading scholarships.json</p>";
+});
+
+// DISPLAY FUNCTION
+function display(data) {
+    let container = document.getElementById("scholarshipList");
+    container.innerHTML = "";
+
+    if (!data || data.length === 0) {
+        container.innerHTML = "<p>No scholarships found.</p>";
+        return;
+    }
+
+    data.forEach(item => {
+        container.innerHTML += `
+        <div class="card">
+            <h3>${item.title}</h3>
+            <p><b>Country:</b> ${item.country}</p>
+            <p><b>Level:</b> ${item.level}</p>
+            <p><b>Deadline:</b> ${item.deadline}</p>
+            <p>${item.description}</p>
+            <a class="btn" href="${item.link}" target="_blank">Apply Now</a>
+        </div>
+        `;
+    });
+}
+
+// SEARCH FUNCTION
+function searchScholarships(value) {
+    let filtered = allData.filter(item =>
+        item.title.toLowerCase().includes(value.toLowerCase()) ||
+        item.country.toLowerCase().includes(value.toLowerCase()) ||
+        item.level.toLowerCase().includes(value.toLowerCase())
+    );
+
+    display(filtered);
+}
+
+// COUNTRY FILTER
+function filterCountry(country) {
+    if (country === "all") {
+        display(allData);
+        return;
+    }
+
+    let filtered = allData.filter(item =>
+        item.country.toLowerCase() === country.toLowerCase()
+    );
+
+    display(filtered);
+}
+</script>
 
 </body>
 </html>
