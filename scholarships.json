@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Chevening Scholarship",
+    "country": "UK",
+    "level": "Masters",
+    "deadline": "Nov 2026",
+    "link": "https://www.chevening.org/",
+    "description": "Fully funded UK government scholarship for international students."
+  },
+  {
+    "title": "DAAD Scholarship",
+    "country": "Germany",
+    "level": "Masters & PhD",
+    "deadline": "2026",
+    "link": "https://www.daad.de/en/",
+    "description": "German academic exchange service scholarship for international students."
+  },
+  {
+    "title": "Erasmus Mundus",
+    "country": "Europe",
+    "level": "Masters",
+    "deadline": "2026",
+    "link": "https://erasmus-plus.ec.europa.eu/",
+    "description": "Study in multiple European universities with full funding."
+  }
+]
