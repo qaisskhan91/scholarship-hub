@@ -21,20 +21,18 @@
 </nav>
 
 <!-- HERO SECTION -->
-<div class="container">
-
+<div style="text-align:center; padding:40px 10px; background:#003366; color:white;">
 <h1>🎓 Scholarship Hub</h1>
+<p>Find Fully Funded Scholarships, Internships & Exchange Programs Worldwide</p>
+</div>
 
-<p style="font-size:18px;">
-Your trusted platform for <b>fully funded scholarships</b>, internships, and global exchange programs.
-</p>
+<div class="container">
 
 <!-- SEARCH -->
 <input type="text" id="searchInput" placeholder="Search scholarships (UK, Germany, USA...)">
 
 <!-- CATEGORIES -->
 <h2>📌 Categories</h2>
-
 <p>
 🇬🇧 UK Scholarships |
 🇩🇪 Germany Scholarships |
@@ -43,15 +41,25 @@ Your trusted platform for <b>fully funded scholarships</b>, internships, and glo
 🎓 Masters | PhD | Bachelor
 </p>
 
+<!-- WHY SECTION -->
+<h2>🌟 Why Scholarship Hub?</h2>
+
+<div class="card">
+<p>✔ Daily updated scholarships</p>
+<p>✔ Fully funded opportunities worldwide</p>
+<p>✔ Simple search system</p>
+<p>✔ Official application links</p>
+</div>
+
 <!-- FEATURED -->
-<h2>🔥 Featured Scholarships 2026-2027</h2>
+<h2>🔥 Featured Scholarships</h2>
 
 <div class="card">
 <h3>Chevening Scholarship</h3>
 <p><b>Country:</b> United Kingdom</p>
 <p><b>Level:</b> Master's</p>
 <p><b>Funding:</b> Fully Funded</p>
-<a href="https://www.chevening.org/" class="btn" target="_blank">Apply Now</a>
+<a class="btn" href="https://www.chevening.org/" target="_blank">Apply Now</a>
 </div>
 
 <div class="card">
@@ -59,7 +67,7 @@ Your trusted platform for <b>fully funded scholarships</b>, internships, and glo
 <p><b>Country:</b> Germany</p>
 <p><b>Level:</b> Masters & PhD</p>
 <p><b>Funding:</b> Fully Funded</p>
-<a href="https://www.daad.de/en/" class="btn" target="_blank">Apply Now</a>
+<a class="btn" href="https://www.daad.de/en/" target="_blank">Apply Now</a>
 </div>
 
 <div class="card">
@@ -67,7 +75,7 @@ Your trusted platform for <b>fully funded scholarships</b>, internships, and glo
 <p><b>Country:</b> Europe</p>
 <p><b>Level:</b> Master's</p>
 <p><b>Funding:</b> Fully Funded</p>
-<a href="https://erasmus-plus.ec.europa.eu/" class="btn" target="_blank">Apply Now</a>
+<a class="btn" href="https://erasmus-plus.ec.europa.eu/" target="_blank">Apply Now</a>
 </div>
 
 </div>
@@ -83,6 +91,10 @@ document.getElementById("searchInput").addEventListener("keyup", function() {
         card.style.display = text.includes(filter) ? "block" : "none";
     });
 });
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
