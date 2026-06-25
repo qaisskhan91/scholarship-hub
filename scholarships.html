@@ -1,108 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Scholarships - Scholarship Hub</title>
-
-<meta name="description" content="Find latest fully funded scholarships, internships, and exchange programs worldwide.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="style.css">
-</head>
-
 <body>
 
 <nav>
 <a href="index.html">Home</a>
 <a href="scholarships.html">Scholarships</a>
-<a href="about.html">About</a>
-<a href="privacy.html">Privacy Policy</a>
-<a href="contact.html">Contact</a>
+<a href="uk.html">UK</a>
+<a href="usa.html">USA</a>
+<a href="germany.html">Germany</a>
 </nav>
 
 <div class="container">
 
 <h1>🎓 All Scholarships</h1>
 
-<input type="text" id="searchInput" placeholder="Search scholarships...">
-
-<div class="card">
-<h3>Chevening Scholarship</h3>
-<p><b>Country:</b> United Kingdom</p>
-<p><b>Level:</b> Masters</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://www.chevening.org/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>DAAD Scholarship</h3>
-<p><b>Country:</b> Germany</p>
-<p><b>Level:</b> Masters & PhD</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://www.daad.de/en/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>Erasmus Mundus</h3>
-<p><b>Country:</b> Europe</p>
-<p><b>Level:</b> Masters</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://erasmus-plus.ec.europa.eu/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>Fulbright Scholarship</h3>
-<p><b>Country:</b> USA</p>
-<p><b>Level:</b> Masters & PhD</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://foreign.fulbrightonline.org/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>Türkiye Burslari</h3>
-<p><b>Country:</b> Turkey</p>
-<p><b>Level:</b> Bachelor, Masters, PhD</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://www.turkiyeburslari.gov.tr/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>MEXT Scholarship</h3>
-<p><b>Country:</b> Japan</p>
-<p><b>Level:</b> Bachelor, Masters, PhD</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://www.studyinjapan.go.jp/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>Chinese Government Scholarship</h3>
-<p><b>Country:</b> China</p>
-<p><b>Level:</b> Bachelor, Masters, PhD</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://www.campuschina.org/" target="_blank">Apply Now</a>
-</div>
-
-<div class="card">
-<h3>Swiss Government Excellence Scholarship</h3>
-<p><b>Country:</b> Switzerland</p>
-<p><b>Level:</b> PhD / Research</p>
-<p><b>Funding:</b> Fully Funded</p>
-<a class="btn" href="https://www.sbfi.admin.ch/" target="_blank">Apply Now</a>
-</div>
+<div id="scholarshipList">Loading scholarships...</div>
 
 </div>
 
-<!-- SEARCH FUNCTION -->
 <script>
-document.getElementById("searchInput").addEventListener("keyup", function() {
-    let filter = this.value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
+fetch("scholarships.json")
+.then(res => res.json())
+.then(data => {
+    let container = document.getElementById("scholarshipList");
+    container.innerHTML = "";
 
-    cards.forEach(function(card) {
-        let text = card.innerText.toLowerCase();
-        card.style.display = text.includes(filter) ? "block" : "none";
+    data.forEach(item => {
+        container.innerHTML += `
+        <div class="card">
+            <h3>${item.title}</h3>
+            <p><b>Country:</b> ${item.country}</p>
+            <p><b>Level:</b> ${item.level}</p>
+            <p><b>Deadline:</b> ${item.deadline}</p>
+            <p>${item.description}</p>
+            <a class="btn" href="${item.link}" target="_blank">Apply Now</a>
+        </div>
+        `;
     });
 });
 </script>
 
 </body>
-</html>
