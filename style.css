@@ -35,3 +35,21 @@ box-shadow:0 2px 5px rgba(0,0,0,0.1);
 h2{
 color:#003366;
 }
+nav {
+    background: #003366;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
