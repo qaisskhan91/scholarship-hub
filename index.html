@@ -26,26 +26,43 @@
 
 <p>Find fully funded scholarships, internships, and exchange programs worldwide.</p>
 
-<input type="text" placeholder="Search scholarships...">
+<!-- SEARCH BOX -->
+<input type="text" id="searchInput" placeholder="Search scholarships...">
 
 <h2>🔥 Featured Scholarships</h2>
 
+<!-- CARD 1 -->
 <div class="card">
 <h3>Chevening Scholarship (UK)</h3>
 <p>Fully funded Master's program</p>
 </div>
 
+<!-- CARD 2 -->
 <div class="card">
 <h3>DAAD Scholarship (Germany)</h3>
 <p>Fully funded Masters & PhD programs</p>
 </div>
 
+<!-- CARD 3 -->
 <div class="card">
 <h3>Erasmus Mundus (Europe)</h3>
 <p>Study in multiple European countries</p>
 </div>
 
 </div>
+
+<!-- SEARCH FUNCTION (IMPORTANT) -->
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function() {
+    let filter = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+    });
+});
+</script>
 
 </body>
 </html>
