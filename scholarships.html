@@ -1,25 +1,14 @@
-<body>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="scholarships.html">Scholarships</a>
-<a href="uk.html">UK</a>
-<a href="usa.html">USA</a>
-<a href="germany.html">Germany</a>
-</nav>
-
-<div class="container">
-
-<h1>🎓 All Scholarships</h1>
-
-<div id="scholarshipList">Loading scholarships...</div>
-
-</div>
-
 <script>
+let allData = [];
+
 fetch("scholarships.json")
 .then(res => res.json())
 .then(data => {
+    allData = data;
+    display(data);
+});
+
+function display(data) {
     let container = document.getElementById("scholarshipList");
     container.innerHTML = "";
 
@@ -35,7 +24,15 @@ fetch("scholarships.json")
         </div>
         `;
     });
-});
-</script>
+}
 
-</body>
+// SEARCH FUNCTION
+function searchScholarships(value) {
+    let filtered = allData.filter(item =>
+        item.title.toLowerCase().includes(value.toLowerCase()) ||
+        item.country.toLowerCase().includes(value.toLowerCase()) ||
+        item.level.toLowerCase().includes(value.toLowerCase())
+    );
+    display(filtered);
+}
+</script>
