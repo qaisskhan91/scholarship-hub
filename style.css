@@ -1,55 +1,71 @@
-body{
-font-family:Arial,sans-serif;
-max-width:1000px;
-margin:auto;
-padding:20px;
-background:#f4f6f9;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    color: #333;
 }
 
-header{
-background:#003366;
-color:white;
-padding:30px;
-text-align:center;
-border-radius:10px;
+/* Header / Title */
+h1 {
+    text-align: center;
+    color: #003366;
+    margin-top: 20px;
 }
 
-nav{
-margin:20px 0;
-font-size:18px;
-}
-
-nav a{
-text-decoration:none;
-margin-right:15px;
-}
-
-div{
-background:white;
-padding:15px;
-margin:15px 0;
-border-radius:8px;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
-
-h2{
-color:#003366;
-}
+/* Navigation */
 nav {
     background: #003366;
     padding: 12px;
     text-align: center;
-    border-radius: 8px;
-    margin-bottom: 20px;
 }
 
 nav a {
     color: white;
-    margin: 10px;
     text-decoration: none;
+    margin: 10px;
     font-weight: bold;
 }
 
 nav a:hover {
     text-decoration: underline;
+}
+
+/* Page container */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: #003366;
+}
+
+/* Search box */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #003366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
