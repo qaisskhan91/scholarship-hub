@@ -1,16 +1,23 @@
 <script>
 let allData = [];
 
+// LOAD DATA FROM JSON
 fetch("scholarships.json")
 .then(res => res.json())
 .then(data => {
     allData = data;
-    display(data);
+    display(allData);
 });
 
+// DISPLAY SCHOLARSHIPS
 function display(data) {
     let container = document.getElementById("scholarshipList");
     container.innerHTML = "";
+
+    if (!data || data.length === 0) {
+        container.innerHTML = "<p>No scholarships found.</p>";
+        return;
+    }
 
     data.forEach(item => {
         container.innerHTML += `
@@ -26,13 +33,33 @@ function display(data) {
     });
 }
 
-// SEARCH FUNCTION
+// 🔍 SEARCH FUNCTION
 function searchScholarships(value) {
     let filtered = allData.filter(item =>
         item.title.toLowerCase().includes(value.toLowerCase()) ||
         item.country.toLowerCase().includes(value.toLowerCase()) ||
         item.level.toLowerCase().includes(value.toLowerCase())
     );
+
     display(filtered);
+}
+
+// 🌍 COUNTRY FILTER FUNCTION
+function filterCountry(country) {
+    if (country === "all") {
+        display(allData);
+        return;
+    }
+
+    let filtered = allData.filter(item =>
+        item.country.toLowerCase() === country.toLowerCase()
+    );
+
+    display(filtered);
+}
+
+// 🔄 RESET (optional)
+function resetFilters() {
+    display(allData);
 }
 </script>
