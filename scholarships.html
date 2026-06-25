@@ -1,65 +1,29 @@
-<script>
-let allData = [];
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scholarships - Scholarship Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-// LOAD DATA FROM JSON
-fetch("scholarships.json")
-.then(res => res.json())
-.then(data => {
-    allData = data;
-    display(allData);
-});
+<body>
 
-// DISPLAY SCHOLARSHIPS
-function display(data) {
-    let container = document.getElementById("scholarshipList");
-    container.innerHTML = "";
+<nav>
+<a href="index.html">Home</a>
+<a href="scholarships.html">Scholarships</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-    if (!data || data.length === 0) {
-        container.innerHTML = "<p>No scholarships found.</p>";
-        return;
-    }
+<div class="container">
 
-    data.forEach(item => {
-        container.innerHTML += `
-        <div class="card">
-            <h3>${item.title}</h3>
-            <p><b>Country:</b> ${item.country}</p>
-            <p><b>Level:</b> ${item.level}</p>
-            <p><b>Deadline:</b> ${item.deadline}</p>
-            <p>${item.description}</p>
-            <a class="btn" href="${item.link}" target="_blank">Apply Now</a>
-        </div>
-        `;
-    });
-}
+<h1>🎓 Scholarships</h1>
 
-// 🔍 SEARCH FUNCTION
-function searchScholarships(value) {
-    let filtered = allData.filter(item =>
-        item.title.toLowerCase().includes(value.toLowerCase()) ||
-        item.country.toLowerCase().includes(value.toLowerCase()) ||
-        item.level.toLowerCase().includes(value.toLowerCase())
-    );
+<div id="scholarshipList"></div>
 
-    display(filtered);
-}
+</div>
 
-// 🌍 COUNTRY FILTER FUNCTION
-function filterCountry(country) {
-    if (country === "all") {
-        display(allData);
-        return;
-    }
+<script src="script.js"></script>
 
-    let filtered = allData.filter(item =>
-        item.country.toLowerCase() === country.toLowerCase()
-    );
-
-    display(filtered);
-}
-
-// 🔄 RESET (optional)
-function resetFilters() {
-    display(allData);
-}
-</script>
+</body>
+</html>
