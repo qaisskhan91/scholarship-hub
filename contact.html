@@ -1,1 +1,49 @@
-contact.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Scholarship Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container { max-width: 600px; margin: 40px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main class="contact-container">
+        <h1>Get In Touch</h1>
+        <p>Have questions about a scholarship or need guidance on your application? Feel free to reach out.</p>
+
+        <!-- Use Formspree or similar for free email delivery -->
+        <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+            <div class="form-group">
+                <label>Your Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Message:</label>
+                <textarea name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <section style="margin-top: 30px;">
+            <h3>Connect Professionally</h3>
+            <p>You can also reach me via LinkedIn:</p>
+            <a href="https://www.linkedin.com/in/qaiss-khan" target="_blank" rel="noopener noreferrer">linkedin.com/in/qaiss-khan</a>
+        </section>
+    </main>
+
+</body>
+</html>
