@@ -6,7 +6,7 @@
     "university": "Multiple UK Universities",
     "degree": "Master's",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Applications open annually (typically Aug–Nov)",
     "status": "Open",
     "official_link": "https://www.chevening.org/",
     "description": "UK government scholarship.",
@@ -16,6 +16,33 @@
       "United Kingdom",
       "Master's",
       "Fully Funded"
+    ],
+    "overview": "Chevening Scholarship supports international students pursuing studies in United Kingdom.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -25,7 +52,7 @@
     "university": "German Universities",
     "degree": "Master's & PhD",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Varies by program",
     "status": "Open",
     "official_link": "https://www.daad.de/en/",
     "description": "German Academic Exchange Service.",
@@ -35,6 +62,33 @@
       "Germany",
       "Master's & PhD",
       "Fully Funded"
+    ],
+    "overview": "DAAD Scholarship supports international students pursuing studies in Germany.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -44,7 +98,7 @@
     "university": "Multiple Universities",
     "degree": "Master's",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Varies by program",
     "status": "Open",
     "official_link": "https://erasmus-plus.ec.europa.eu/",
     "description": "Joint European master's.",
@@ -54,6 +108,33 @@
       "Europe",
       "Master's",
       "Fully Funded"
+    ],
+    "overview": "Erasmus Mundus supports international students pursuing studies in Europe.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -63,7 +144,7 @@
     "university": "US Universities",
     "degree": "Master's & PhD",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Varies by country",
     "status": "Open",
     "official_link": "https://foreign.fulbrightonline.org/",
     "description": "US government exchange.",
@@ -73,6 +154,33 @@
       "USA",
       "Master's & PhD",
       "Fully Funded"
+    ],
+    "overview": "Fulbright Foreign Student Program supports international students pursuing studies in USA.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -80,18 +188,45 @@
     "title": "Australia Awards",
     "country": "Australia",
     "university": "Australian Universities",
-    "degree": "Bachelor/Master's",
+    "degree": "Bachelor's/Master's",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Varies by country",
     "status": "Open",
     "official_link": "https://www.australiaawards.gov.au/",
-    "description": "Australian government.",
+    "description": "Australian government scholarship.",
     "featured": false,
     "category": "Scholarship",
     "tags": [
       "Australia",
-      "Bachelor/Master's",
+      "Bachelor's/Master's",
       "Fully Funded"
+    ],
+    "overview": "Australia Awards supports international students pursuing studies in Australia.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -99,37 +234,91 @@
     "title": "MEXT Scholarship",
     "country": "Japan",
     "university": "Japanese Universities",
-    "degree": "Bachelor/Master's/PhD",
+    "degree": "Bachelor's/Master's/PhD",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Annual",
     "status": "Open",
     "official_link": "https://www.studyinjapan.go.jp/en/",
-    "description": "Japan government.",
+    "description": "Japan government scholarship.",
     "featured": false,
     "category": "Scholarship",
     "tags": [
       "Japan",
-      "Bachelor/Master's/PhD",
+      "Bachelor's/Master's/PhD",
       "Fully Funded"
+    ],
+    "overview": "MEXT Scholarship supports international students pursuing studies in Japan.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
     "id": 7,
     "title": "Turkiye Burslari",
-    "country": "T\u00fcrkiye",
+    "country": "Türkiye",
     "university": "Turkish Universities",
     "degree": "All Levels",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Annual",
     "status": "Open",
     "official_link": "https://www.turkiyeburslari.gov.tr/",
-    "description": "T\u00fcrkiye Scholarships.",
+    "description": "Türkiye Scholarships.",
     "featured": false,
     "category": "Scholarship",
     "tags": [
-      "T\u00fcrkiye",
+      "Türkiye",
       "All Levels",
       "Fully Funded"
+    ],
+    "overview": "Turkiye Burslari supports international students pursuing studies in Türkiye.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -139,7 +328,7 @@
     "university": "Chinese Universities",
     "degree": "All Levels",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Annual",
     "status": "Open",
     "official_link": "https://www.campuschina.org/",
     "description": "CSC scholarship.",
@@ -149,6 +338,33 @@
       "China",
       "All Levels",
       "Fully Funded"
+    ],
+    "overview": "Chinese Government Scholarship supports international students pursuing studies in China.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -158,16 +374,43 @@
     "university": "Korean Universities",
     "degree": "All Levels",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Annual",
     "status": "Open",
     "official_link": "https://www.studyinkorea.go.kr/",
-    "description": "GKS.",
+    "description": "Global Korea Scholarship.",
     "featured": false,
     "category": "Scholarship",
     "tags": [
       "South Korea",
       "All Levels",
       "Fully Funded"
+    ],
+    "overview": "Global Korea Scholarship supports international students pursuing studies in South Korea.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   },
   {
@@ -177,16 +420,43 @@
     "university": "UK Universities",
     "degree": "Master's & PhD",
     "funding": "Fully Funded",
-    "deadline": "UPDATE_ME",
+    "deadline": "Annual",
     "status": "Open",
     "official_link": "https://cscuk.fcdo.gov.uk/",
-    "description": "Commonwealth.",
+    "description": "Commonwealth scholarship.",
     "featured": false,
     "category": "Scholarship",
     "tags": [
       "United Kingdom",
       "Master's & PhD",
       "Fully Funded"
+    ],
+    "overview": "Commonwealth Scholarship supports international students pursuing studies in United Kingdom.",
+    "benefits": [
+      "Full tuition",
+      "Monthly stipend",
+      "Health insurance",
+      "Travel support"
+    ],
+    "eligibility": [
+      "Meet academic requirements",
+      "Valid passport",
+      "Language requirements if applicable",
+      "Follow official criteria"
+    ],
+    "documents": [
+      "Passport",
+      "Academic transcripts",
+      "CV",
+      "Recommendation letters",
+      "Statement of purpose"
+    ],
+    "application_process": [
+      "Visit official website",
+      "Create an account",
+      "Complete application",
+      "Upload documents",
+      "Submit before deadline"
     ]
   }
 ]
