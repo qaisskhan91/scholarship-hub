@@ -15,6 +15,7 @@
 <a href="about.html">About</a>
 <a href="privacy.html">Privacy</a>
 <a href="contact.html">Contact</a>
+<a href="disclaimer.html">Disclaimer</a>
 </nav>
 
 <section class="hero">
@@ -27,12 +28,24 @@
 <input id="searchInput" type="text" placeholder="Search by country, degree or scholarship...">
 
 <div class="stats">
-<div class="stat-box"><h2>120+</h2><p>Countries</p></div>
-<div class="stat-box"><h2>Daily</h2><p>Updates</p></div>
-<div class="stat-box"><h2>100%</h2><p>Free Access</p></div>
+<div class="stat-box">
+<h2>120+</h2>
+<p>Countries</p>
+</div>
+
+<div class="stat-box">
+<h2>Daily</h2>
+<p>Updates</p>
+</div>
+
+<div class="stat-box">
+<h2>100%</h2>
+<p>Free Access</p>
+</div>
 </div>
 
 <h2>Browse by Country</h2>
+
 <div class="categories">
 <div class="card"><h3>🇬🇧 UK</h3></div>
 <div class="card"><h3>🇺🇸 USA</h3></div>
@@ -43,28 +56,88 @@
 </div>
 
 <h2>Latest Scholarships</h2>
+
 <div id="latestScholarships">Loading...</div>
 
 <div class="contact-box">
 <h2>📢 Join our WhatsApp Community</h2>
 <p>Get scholarship updates directly on WhatsApp.</p>
-<a class="btn" href="https://chat.whatsapp.com/EaG31cyQuFVKUTuW7nxPsL" target="_blank">Join Community</a>
-</div>
+
+<a class="btn"
+href="https://chat.whatsapp.com/EaG31cyQuFVKUTuW7nxPsL"
+target="_blank">
+Join Community
+</a>
 
 </div>
 
-<footer>© 2026 Scholarship Hub</footer>
+</div>
+
+<footer>
+<p>
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a> |
+<a href="privacy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a>
+</p>
+
+<p>© 2026 Scholarship Hub. All Rights Reserved.</p>
+</footer>
 
 <script>
 let scholarships=[];
-fetch("scholarships.json").then(r=>r.json()).then(d=>{scholarships=d;render(d);});
+
+fetch("scholarships.json")
+.then(r=>r.json())
+.then(d=>{
+scholarships=d;
+render(d);
+});
+
 function render(list){
-const c=document.getElementById("latestScholarships");c.innerHTML="";
-list.forEach(i=>c.innerHTML+=`<div class="card"><h3>${i.title}</h3><p><b>Country:</b> ${i.country}</p><p><b>Level:</b> ${i.level}</p><p class="deadline">Deadline: ${i.deadline}</p><p>${i.description}</p><a class="btn" href="${i.link}" target="_blank">Apply Now</a></div>`);
+const c=document.getElementById("latestScholarships");
+c.innerHTML="";
+
+list.forEach(i=>
+c.innerHTML+=`
+<div class="card">
+<h3>${i.title}</h3>
+
+<p><b>Country:</b> ${i.country}</p>
+
+<p><b>Level:</b> ${i.level}</p>
+
+<p class="deadline">
+Deadline: ${i.deadline}
+</p>
+
+<p>${i.description}</p>
+
+<a class="btn"
+href="${i.link}"
+target="_blank">
+Apply Now
+</a>
+
+</div>
+`);
 }
-document.getElementById("searchInput").addEventListener("input",e=>{
+
+document.getElementById("searchInput")
+.addEventListener("input",e=>{
+
 const q=e.target.value.toLowerCase();
-render(scholarships.filter(s=>s.title.toLowerCase().includes(q)||s.country.toLowerCase().includes(q)||s.level.toLowerCase().includes(q)));
+
+render(
+scholarships.filter(s=>
+s.title.toLowerCase().includes(q) ||
+s.country.toLowerCase().includes(q) ||
+s.level.toLowerCase().includes(q)
+)
+);
+
 });
 </script>
-</body></html>
+
+</body>
+</html>
