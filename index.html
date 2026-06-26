@@ -1,7 +1,90 @@
-<!-- LATEST SCHOLARSHIPS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholarship Hub - Study Abroad Opportunities</title>
+<meta name="description" content="Find fully funded scholarships, internships and exchange programs worldwide.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="scholarships.html">Scholarships</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div style="text-align:center;padding:50px 20px;background:#003366;color:#fff;">
+<h1>🎓 Scholarship Hub</h1>
+<p>Find Fully Funded Scholarships, Internships & Exchange Programs Worldwide</p>
+</div>
+
+<div class="container">
+
+<input type="text" id="searchInput" placeholder="Search scholarships...">
+
+<h2>📌 Categories</h2>
+<p>UK • USA • Germany • Europe • Canada • Australia • China • Japan • Türkiye</p>
+
+<h2>🌟 Why Scholarship Hub?</h2>
+<div class="card">
+<p>✔ Daily scholarship updates</p>
+<p>✔ Official application links</p>
+<p>✔ Fully funded opportunities</p>
+<p>✔ Search by country and degree</p>
+</div>
 
 <h2>🌍 Latest Scholarships</h2>
+<div id="latestScholarships">Loading scholarships...</div>
 
-<div id="latestScholarships">
-Loading latest scholarships...
 </div>
+
+<footer>
+<p style="text-align:center;padding:20px;">© 2026 Scholarship Hub. All Rights Reserved.</p>
+</footer>
+
+<script>
+let scholarships=[];
+
+fetch("scholarships.json")
+.then(r=>r.json())
+.then(data=>{
+ scholarships=data;
+ display(data);
+});
+
+function display(data){
+ const box=document.getElementById("latestScholarships");
+ box.innerHTML="";
+ if(data.length===0){
+   box.innerHTML="<p>No scholarships found.</p>";
+   return;
+ }
+ data.forEach(item=>{
+ box.innerHTML+=`
+ <div class="card">
+ <h3>${item.title}</h3>
+ <p><strong>Country:</strong> ${item.country}</p>
+ <p><strong>Level:</strong> ${item.level}</p>
+ <p><strong>Deadline:</strong> ${item.deadline}</p>
+ <p>${item.description}</p>
+ <a class="btn" href="${item.link}" target="_blank">Apply Now</a>
+ </div>`;
+ });
+}
+
+document.getElementById("searchInput").addEventListener("keyup",function(){
+ const q=this.value.toLowerCase();
+ display(scholarships.filter(s=>
+ s.title.toLowerCase().includes(q)||
+ s.country.toLowerCase().includes(q)||
+ s.level.toLowerCase().includes(q)
+ ));
+});
+</script>
+
+</body>
+</html>
