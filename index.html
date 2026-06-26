@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scholarship Hub - Study Abroad Opportunities</title>
-<meta name="description" content="Find fully funded scholarships, internships and exchange programs worldwide.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scholarship Hub | Fully Funded Scholarships Worldwide</title>
+<meta name="description" content="Search fully funded scholarships, internships and exchange programs worldwide.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,78 +13,58 @@
 <a href="index.html">Home</a>
 <a href="scholarships.html">Scholarships</a>
 <a href="about.html">About</a>
-<a href="privacy.html">Privacy Policy</a>
+<a href="privacy.html">Privacy</a>
 <a href="contact.html">Contact</a>
 </nav>
 
-<div style="text-align:center;padding:50px 20px;background:#003366;color:#fff;">
+<section class="hero">
 <h1>🎓 Scholarship Hub</h1>
-<p>Find Fully Funded Scholarships, Internships & Exchange Programs Worldwide</p>
-</div>
+<p>Discover fully funded scholarships, internships and exchange programs from around the world.</p>
+</section>
 
 <div class="container">
 
-<input type="text" id="searchInput" placeholder="Search scholarships...">
+<input id="searchInput" type="text" placeholder="Search by country, degree or scholarship...">
 
-<h2>📌 Categories</h2>
-<p>UK • USA • Germany • Europe • Canada • Australia • China • Japan • Türkiye</p>
-
-<h2>🌟 Why Scholarship Hub?</h2>
-<div class="card">
-<p>✔ Daily scholarship updates</p>
-<p>✔ Official application links</p>
-<p>✔ Fully funded opportunities</p>
-<p>✔ Search by country and degree</p>
+<div class="stats">
+<div class="stat-box"><h2>120+</h2><p>Countries</p></div>
+<div class="stat-box"><h2>Daily</h2><p>Updates</p></div>
+<div class="stat-box"><h2>100%</h2><p>Free Access</p></div>
 </div>
 
-<h2>🌍 Latest Scholarships</h2>
-<div id="latestScholarships">Loading scholarships...</div>
+<h2>Browse by Country</h2>
+<div class="categories">
+<div class="card"><h3>🇬🇧 UK</h3></div>
+<div class="card"><h3>🇺🇸 USA</h3></div>
+<div class="card"><h3>🇩🇪 Germany</h3></div>
+<div class="card"><h3>🇨🇦 Canada</h3></div>
+<div class="card"><h3>🇦🇺 Australia</h3></div>
+<div class="card"><h3>🌍 More</h3></div>
+</div>
+
+<h2>Latest Scholarships</h2>
+<div id="latestScholarships">Loading...</div>
+
+<div class="contact-box">
+<h2>📢 Join our WhatsApp Community</h2>
+<p>Get scholarship updates directly on WhatsApp.</p>
+<a class="btn" href="https://chat.whatsapp.com/EaG31cyQuFVKUTuW7nxPsL" target="_blank">Join Community</a>
+</div>
 
 </div>
 
-<footer>
-<p style="text-align:center;padding:20px;">© 2026 Scholarship Hub. All Rights Reserved.</p>
-</footer>
+<footer>© 2026 Scholarship Hub</footer>
 
 <script>
 let scholarships=[];
-
-fetch("scholarships.json")
-.then(r=>r.json())
-.then(data=>{
- scholarships=data;
- display(data);
-});
-
-function display(data){
- const box=document.getElementById("latestScholarships");
- box.innerHTML="";
- if(data.length===0){
-   box.innerHTML="<p>No scholarships found.</p>";
-   return;
- }
- data.forEach(item=>{
- box.innerHTML+=`
- <div class="card">
- <h3>${item.title}</h3>
- <p><strong>Country:</strong> ${item.country}</p>
- <p><strong>Level:</strong> ${item.level}</p>
- <p><strong>Deadline:</strong> ${item.deadline}</p>
- <p>${item.description}</p>
- <a class="btn" href="${item.link}" target="_blank">Apply Now</a>
- </div>`;
- });
+fetch("scholarships.json").then(r=>r.json()).then(d=>{scholarships=d;render(d);});
+function render(list){
+const c=document.getElementById("latestScholarships");c.innerHTML="";
+list.forEach(i=>c.innerHTML+=`<div class="card"><h3>${i.title}</h3><p><b>Country:</b> ${i.country}</p><p><b>Level:</b> ${i.level}</p><p class="deadline">Deadline: ${i.deadline}</p><p>${i.description}</p><a class="btn" href="${i.link}" target="_blank">Apply Now</a></div>`);
 }
-
-document.getElementById("searchInput").addEventListener("keyup",function(){
- const q=this.value.toLowerCase();
- display(scholarships.filter(s=>
- s.title.toLowerCase().includes(q)||
- s.country.toLowerCase().includes(q)||
- s.level.toLowerCase().includes(q)
- ));
+document.getElementById("searchInput").addEventListener("input",e=>{
+const q=e.target.value.toLowerCase();
+render(scholarships.filter(s=>s.title.toLowerCase().includes(q)||s.country.toLowerCase().includes(q)||s.level.toLowerCase().includes(q)));
 });
 </script>
-
-</body>
-</html>
+</body></html>
