@@ -5,62 +5,193 @@
 
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background: #f4f6f8;
+            color: #333;
         }
 
         header {
             background: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
         }
 
-        .container {
+        header h1 {
+            margin: 0 0 5px 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        /* Responsive Layout Grid */
+        .main-layout {
+            display: flex;
+            gap: 20px;
             padding: 20px;
-            max-width: 900px;
+            max-width: 1100px;
             margin: auto;
         }
 
+        /* Sidebar Filters */
+        .sidebar {
+            flex: 0 0 280px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 18px;
+            border-bottom: 2px solid #f4f6f8;
+            padding-bottom: 8px;
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #27ae60;
+        }
+
+        /* Main Feed Area */
+        .content-feed {
+            flex: 1;
+        }
+
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .feed-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        .count-badge {
+            background: #2c3e50;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* Cards Layout */
         .card {
             background: white;
-            padding: 15px;
+            padding: 20px;
             margin-bottom: 15px;
             border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
         .title {
             text-decoration: none;
             color: #2c3e50;
             font-weight: bold;
+            font-size: 18px;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .title:hover {
+            color: #27ae60;
         }
 
         .badge {
             background: #27ae60;
             color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
+            padding: 8px 16px;
             background: #27ae60;
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
         }
 
         .btn:hover {
             background: #219150;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4px 0;
+            color: #777;
+            font-size: 15px;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                flex: none;
+                position: static;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -69,34 +200,72 @@
 
 <header>
     <h1>🎓 Scholarship Hub</h1>
-    <p>Latest Scholarships Updated Automatically</p>
+    <p>Latest Opportunities Updated Automatically</p>
 </header>
 
-<div class="container">
-    <h2 id="count">Loading scholarships...</h2>
-    <div id="list"></div>
+<div class="main-layout">
+    
+    <!-- 🔍 Left Sidebar Filter (Opportunities Circle Style) -->
+    <div class="sidebar">
+        <h3>Filter Openings</h3>
+        
+        <div class="filter-group">
+            <label for="searchBar">Keyword Search</label>
+            <input type="text" id="searchBar" class="form-control" placeholder="Search country, name...">
+        </div>
+    </div>
+
+    <!-- 📑 Right Main Feed -->
+    <div class="content-feed">
+        <div class="feed-header">
+            <h2 id="status-title">Loading Openings...</h2>
+            <span id="count" class="count-badge">0</span>
+        </div>
+        
+        <div id="list"></div>
+    </div>
+
 </div>
 
 <script>
+// Global storage to filter data locally in memory
+let allScholarships = [];
+
 fetch("scholarships.json")
 .then(res => res.json())
 .then(data => {
+    // Parse the inner array out safely
+    allScholarships = data.scholarships || [];
+    
+    document.getElementById("status-title").innerText = "Latest Opportunities";
+    
+    // Initial paint of the data matrix
+    renderList(allScholarships);
+    
+    // Bind search typing events
+    document.getElementById("searchBar").addEventListener("input", filterListings);
+})
+.catch(err => {
+    document.getElementById("status-title").innerText = "Error loading system data";
+    document.getElementById("list").innerHTML = "<p style='color:red; text-align:center;'>Failed to execute fetch request against scholarships.json</p>";
+});
 
-    let scholarships = data.scholarships || [];
-
-    document.getElementById("count").innerText =
-        "Total Scholarships: " + scholarships.length;
-
+// Structural UI rendering logic
+function renderList(items) {
+    const listContainer = document.getElementById("list");
+    document.getElementById("count").innerText = items.length;
+    
     let html = "";
 
-    if (scholarships.length === 0) {
-        html = "<p>No scholarships available right now.</p>";
+    if (items.length === 0) {
+        html = "<div class='no-results'><p>No items match your active search terms.</p></div>";
     } else {
-
-        scholarships.forEach(item => {
+        items.forEach(item => {
             html += `
                 <div class="card">
-                    <span class="badge">SCHOLARSHIP</span>
+                    <div class="card-meta">
+                        <span class="badge">Opportunity</span>
+                    </div>
 
                     <a class="title" href="${item.link}" target="_blank">
                         ${item.title}
@@ -108,16 +277,24 @@ fetch("scholarships.json")
                 </div>
             `;
         });
-
     }
+    listContainer.innerHTML = html;
+}
 
-    document.getElementById("list").innerHTML = html;
-})
-.catch(err => {
-    document.getElementById("count").innerText = "Error loading data";
-    document.getElementById("list").innerHTML =
-        "<p style='color:red'>Failed to load scholarships.json</p>";
-});
+// Logic parsing search field content local loops
+function filterListings() {
+    const query = document.getElementById("searchBar").value.toLowerCase();
+    
+    const filtered = allScholarships.filter(item => {
+        const titleMatch = item.title && item.title.toLowerCase().includes(query);
+        // Fallback checks in case optional fields match keywords
+        const descMatch = item.description && item.description.toLowerCase().includes(query);
+        
+        return titleMatch || descMatch;
+    });
+    
+    renderList(filtered);
+}
 </script>
 
 </body>
