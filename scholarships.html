@@ -24,23 +24,28 @@
 
 <h1>🌍 Scholarship Database</h1>
 
-<p>Browse scholarships by country or search by keyword.</p>
+<p>Search scholarships by title, country, degree or funding.</p>
 
 <input id="search" type="text" placeholder="Search scholarships...">
 
-<div style="margin:20px 0;">
+<div style="margin:20px 0;display:flex;flex-wrap:wrap;gap:10px;">
+
 <button onclick="filterCountry('all')">All</button>
-<button onclick="filterCountry('UK')">UK</button>
+<button onclick="filterCountry('United Kingdom')">UK</button>
 <button onclick="filterCountry('USA')">USA</button>
-<button onclick="filterCountry('Canada')">Canada</button>
 <button onclick="filterCountry('Germany')">Germany</button>
+<button onclick="filterCountry('Canada')">Canada</button>
 <button onclick="filterCountry('Australia')">Australia</button>
-<button onclick="filterCountry('China')">China</button>
 <button onclick="filterCountry('Japan')">Japan</button>
+<button onclick="filterCountry('China')">China</button>
 <button onclick="filterCountry('Türkiye')">Türkiye</button>
+<button onclick="filterCountry('South Korea')">South Korea</button>
+
 </div>
 
-<div id="results">Loading...</div>
+<div id="results">
+Loading...
+</div>
 
 </div>
 
@@ -63,10 +68,10 @@
 let all=[];
 
 fetch("scholarships.json")
-.then(r=>r.json())
-.then(d=>{
-all=d;
-show(d);
+.then(response=>response.json())
+.then(data=>{
+all=data;
+show(data);
 });
 
 function show(data){
@@ -93,7 +98,13 @@ box.innerHTML+=`
 
 <p><strong>Country:</strong> ${s.country}</p>
 
-<p><strong>Degree:</strong> ${s.level}</p>
+<p><strong>University:</strong> ${s.university}</p>
+
+<p><strong>Degree:</strong> ${s.degree}</p>
+
+<p><strong>Funding:</strong> ${s.funding}</p>
+
+<p><strong>Status:</strong> ${s.status}</p>
 
 <p><strong>Deadline:</strong>
 <span class="deadline">${s.deadline}</span>
@@ -101,14 +112,10 @@ box.innerHTML+=`
 
 <p>${s.description}</p>
 
-<a class="btn" href="${s.link}" target="_blank">
+<a class="btn"
+href="${s.official_link}"
+target="_blank">
 Apply Now
-</a>
-
-&nbsp;
-
-<a class="btn" href="#">
-View Details
 </a>
 
 </div>
@@ -119,19 +126,21 @@ View Details
 
 }
 
-document.getElementById("search").addEventListener("input",e=>{
+document.getElementById("search").addEventListener("input",function(){
 
-const q=e.target.value.toLowerCase();
+const q=this.value.toLowerCase();
 
 show(
 
-all.filter(x=>
+all.filter(s=>
 
-x.title.toLowerCase().includes(q) ||
+s.title.toLowerCase().includes(q) ||
 
-x.country.toLowerCase().includes(q) ||
+s.country.toLowerCase().includes(q) ||
 
-x.level.toLowerCase().includes(q)
+s.degree.toLowerCase().includes(q) ||
+
+s.funding.toLowerCase().includes(q)
 
 )
 
@@ -139,9 +148,9 @@ x.level.toLowerCase().includes(q)
 
 });
 
-function filterCountry(c){
+function filterCountry(country){
 
-if(c==="all"){
+if(country==="all"){
 
 show(all);
 
@@ -151,7 +160,7 @@ return;
 
 show(
 
-all.filter(x=>x.country.toLowerCase()===c.toLowerCase())
+all.filter(s=>s.country.toLowerCase()===country.toLowerCase())
 
 );
 
