@@ -1,176 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Scholarship Hub | Fully Funded Scholarships Worldwide</title>
-<meta name="description" content="Search fully funded scholarships, internships and exchange programs worldwide.">
-<link rel="stylesheet" href="style.css">
-</head>
+    <title>Scholarship Hub</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f8;
+        }
 
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
 <body>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="scholarships.html">Scholarships</a>
-<a href="about.html">About</a>
-<a href="privacy.html">Privacy</a>
-<a href="contact.html">Contact</a>
-<a href="disclaimer.html">Disclaimer</a>
-<a href="terms.html">Terms</a>
-</nav>
-
-<section class="hero">
-<h1>🎓 Scholarship Hub</h1>
-<p>Discover fully funded scholarships, internships and exchange programs from around the world.</p>
-</section>
+<header>
+    <h1>🎓 Scholarship Hub</h1>
+    <p>Latest Scholarships Updated Automatically</p>
+</header>
 
 <div class="container">
-
-<input id="searchInput" type="text" placeholder="Search by country, degree or scholarship...">
-
-<div class="stats">
-
-<div class="stat-box">
-<h2>120+</h2>
-<p>Countries</p>
+    <h2 id="count"></h2>
+    <div id="list"></div>
 </div>
-
-<div class="stat-box">
-<h2>Daily</h2>
-<p>Updates</p>
-</div>
-
-<div class="stat-box">
-<h2>100%</h2>
-<p>Free Access</p>
-</div>
-
-</div>
-
-<h2>Browse by Country</h2>
-
-<div class="categories">
-<div class="card"><h3>🇬🇧 United Kingdom</h3></div>
-<div class="card"><h3>🇺🇸 USA</h3></div>
-<div class="card"><h3>🇩🇪 Germany</h3></div>
-<div class="card"><h3>🇨🇦 Canada</h3></div>
-<div class="card"><h3>🇦🇺 Australia</h3></div>
-<div class="card"><h3>🇯🇵 Japan</h3></div>
-<div class="card"><h3>🇨🇳 China</h3></div>
-<div class="card"><h3>🌍 More</h3></div>
-</div>
-
-<h2>Latest Scholarships</h2>
-
-<div id="latestScholarships">Loading...</div>
-
-<div class="contact-box">
-
-<h2>📢 Join our WhatsApp Community</h2>
-
-<p>Get scholarship updates directly on WhatsApp.</p>
-
-<a class="btn"
-href="https://chat.whatsapp.com/EaG31cyQuFVKUTuW7nxPsL"
-target="_blank">
-Join Community
-</a>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>
-<a href="about.html">About</a> |
-<a href="contact.html">Contact</a> |
-<a href="privacy.html">Privacy Policy</a> |
-<a href="disclaimer.html">Disclaimer</a> |
-<a href="terms.html">Terms & Conditions</a>
-</p>
-
-<p>© 2026 Scholarship Hub. All Rights Reserved.</p>
-
-</footer>
 
 <script>
-
-let scholarships=[];
-
 fetch("scholarships.json")
-.then(response=>response.json())
-.then(data=>{
-scholarships=data;
-render(data);
+.then(res => res.json())
+.then(data => {
+
+    document.getElementById("count").innerText =
+        "Total Scholarships: " + data.total_scholarships;
+
+    let html = "";
+
+    data.scholarships.forEach(item => {
+        html += `
+            <div class="card">
+                <span class="badge">NEW</span><br><br>
+                <a href="${item.link}" target="_blank">
+                    ${item.title}
+                </a>
+            </div>
+        `;
+    });
+
+    document.getElementById("list").innerHTML = html;
 });
-
-function render(list){
-
-const container=document.getElementById("latestScholarships");
-
-container.innerHTML="";
-
-list.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="card">
-
-<h3>${item.title}</h3>
-
-<p><strong>Country:</strong> ${item.country}</p>
-
-<p><strong>University:</strong> ${item.university}</p>
-
-<p><strong>Degree:</strong> ${item.degree}</p>
-
-<p><strong>Funding:</strong> ${item.funding}</p>
-
-<p class="deadline">
-Deadline: ${item.deadline}
-</p>
-
-<p>${item.description}</p>
-
-<a class="btn"
-href="${item.official_link}"
-target="_blank">
-Apply Now
-</a>
-
-</div>
-
-`;
-
-});
-
-}
-
-document.getElementById("searchInput")
-.addEventListener("input",function(){
-
-const q=this.value.toLowerCase();
-
-render(
-
-scholarships.filter(item=>
-
-item.title.toLowerCase().includes(q) ||
-
-item.country.toLowerCase().includes(q) ||
-
-item.degree.toLowerCase().includes(q) ||
-
-item.funding.toLowerCase().includes(q)
-
-)
-
-);
-
-});
-
 </script>
 
 </body>
