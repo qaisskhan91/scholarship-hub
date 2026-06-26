@@ -1,50 +1,34 @@
-import feedparser
 import json
-import re
 
 def get_scholarships():
-    # Google News RSS focused on scholarships
-    url = "https://news.google.com/rss/search?q=scholarship+apply+2026+pakistan"
-
-    feed = feedparser.parse(url)
-
-    scholarships = []
-
-    # keywords to keep only useful results
-    keywords = [
-        "scholarship",
-        "apply",
-        "funded",
-        "fully funded",
-        "fellowship",
-        "grant",
-        "financial aid",
-        "program",
-        "opportunity"
+    # Clean structured scholarships (starter dataset)
+    scholarships = [
+        {
+            "title": "Fulbright Scholarship Program",
+            "link": "https://foreign.fulbrightonline.org/",
+        },
+        {
+            "title": "DAAD Germany Scholarships",
+            "link": "https://www.daad.de/en/",
+        },
+        {
+            "title": "Erasmus Mundus Scholarships",
+            "link": "https://www.eacea.ec.europa.eu/scholarships/emjmd-catalogue_en",
+        },
+        {
+            "title": "Commonwealth Scholarships",
+            "link": "https://cscuk.fcdo.gov.uk/apply/",
+        },
+        {
+            "title": "HEC Pakistan Scholarships",
+            "link": "https://www.hec.gov.pk/english/scholarshipsgrants/",
+        }
     ]
 
-    for entry in feed.entries:
-        title = entry.title.lower()
-
-        # filter only relevant scholarship content
-        if any(word in title for word in keywords):
-            clean_title = re.sub(r'\s+', ' ', entry.title).strip()
-
-            scholarships.append({
-                "title": clean_title,
-                "link": entry.link
-            })
-
-        # limit results
-        if len(scholarships) >= 10:
-            break
-
-    output = {
+    return {
         "total_scholarships": len(scholarships),
         "scholarships": scholarships
     }
-
-    return output
 
 
 def main():
@@ -53,7 +37,7 @@ def main():
     with open("scholarships.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
-    print("Clean scholarship data updated successfully!")
+    print("Clean scholarship database updated!")
 
 
 if __name__ == "__main__":
