@@ -1,170 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <title>Contact | Scholarship Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
 
-<title>Contact Scholarship Hub</title>
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-<meta name="description" content="Contact Scholarship Hub for scholarships, internships, fellowships, exchange programs and study abroad opportunities.">
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #1a242f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background: #2c3e50;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-
-<a href="index.html">Home</a>
-<a href="scholarships.html">Scholarships</a>
-<a href="about.html">About</a>
-<a href="privacy.html">Privacy Policy</a>
-<a href="contact.html">Contact</a>
-
-</nav>
+<header>
+  <h2>Scholarship Hub</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
 
 <div class="container">
+  <h1>📩 Contact Us</h1>
+  <p>
+    If you have any questions, suggestions, or need help regarding scholarships,
+    feel free to contact us. We usually reply within 24–48 hours.
+  </p>
 
-<div class="card">
-
-<h1>📩 Contact Scholarship Hub</h1>
-
-<p>
-
-Have questions about scholarships, internships, exchange programs, or study abroad opportunities?
-We're happy to help.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>✉️ Send Us a Message</h2>
-
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-<label>Your Name</label>
-<input type="text" name="name" required>
-
-<label>Your Email</label>
-<input type="email" name="email" required>
-
-<label>Subject</label>
-<input type="text" name="subject" required>
-
-<label>Your Message</label>
-<textarea name="message" rows="6" required></textarea>
-
-<br><br>
-
-<button class="btn" type="submit">
-Send Message
-</button>
-
-</form>
-
-</div>
-
-<div class="card">
-
-<h2>📢 Join Scholarship Hub WhatsApp Community</h2>
-
-<p>
-
-Get daily updates about:
-
-</p>
-
-<ul>
-
-<li>🎓 Fully Funded Scholarships</li>
-
-<li>💼 International Internships</li>
-
-<li>🌍 Exchange Programs</li>
-
-<li>🏆 Fellowships</li>
-
-<li>☀️ Summer Schools</li>
-
-<li>🎤 Conferences</li>
-
-</ul>
-
-<p>
-
-<a class="btn"
-href="https://chat.whatsapp.com/EaG31cyQuFVKUTuW7nxPsL"
-target="_blank">
-
-Join WhatsApp Community
-
-</a>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>⏰ Response Time</h2>
-
-<p>
-
-We aim to respond to all messages within 24–48 hours.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>❓Frequently Asked Questions</h2>
-
-<h3>Do you provide scholarships?</h3>
-
-<p>
-
-No.
-We only share information and official application links.
-
-</p>
-
-<h3>Do you charge any fee?</h3>
-
-<p>
-
-No.
-Scholarship Hub is completely free.
-
-</p>
-
-<h3>Can you help me apply?</h3>
-
-<p>
-
-We provide guidance and official resources, but all applications must be submitted through the official scholarship website.
-
-</p>
-
-</div>
-
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </div>
 
 <footer>
-
-<p>
-
-© 2026 Scholarship Hub. All Rights Reserved.
-
-</p>
-
+  &copy; 2026 Scholarship Hub. All rights reserved.
 </footer>
 
 </body>
-
 </html>
