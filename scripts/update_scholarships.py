@@ -1,49 +1,35 @@
+import feedparser
+import json
+
 def get_scholarships():
-    url = "https://www.scholarshipsads.com/category/scholarships/"
+    url = "https://news.google.com/rss/search?q=scholarships+pakistan"
 
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-    }
-
-    response = requests.get(url, headers=headers, timeout=20)
-    soup = BeautifulSoup(response.text, "html.parser")
+    feed = feedparser.parse(url)
 
     scholarships = []
 
-    # TRY multiple possible structures
-    selectors = [
-        "h2 a",
-        "h2.entry-title a",
-        "article h2 a",
-        ".entry-title a"
-    ]
+    for entry in feed.entries[:10]:
+        scholarships.append({
+            "title": entry.title,
+            "link": entry.link
+        })
 
-    seen = set()
+    return scholarships
 
-    for selector in selectors:
-        posts = soup.select(selector)
 
-        for post in posts:
-            title = post.text.strip()
-            link = post.get("href")
+def main():
+    data = get_scholarships()
 
-            if not title or not link:
-                continue
+    output = {
+        "total_scholarships": len(data),
+        "scholarships": data
+    }
 
-            if len(title) < 10:
-                continue
+    with open("scholarships.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=4)
 
-            if link in seen:
-                continue
+    print("Updated real scholarships successfully!")
 
-            seen.add(link)
 
-            if not link.startswith("http"):
-                link = "https://www.scholarshipsads.com" + link
-
-            scholarships.append({
-                "title": title,
-                "link": link
-            })
-
-    return scholarships[:10]
+if __name__ == "__main__":
+    main()
