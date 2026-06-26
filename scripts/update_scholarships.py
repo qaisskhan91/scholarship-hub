@@ -1,34 +1,59 @@
 import feedparser
 import json
+import re
 
 def get_scholarships():
-    url = "https://news.google.com/rss/search?q=scholarships+pakistan"
+    # Google News RSS focused on scholarships
+    url = "https://news.google.com/rss/search?q=scholarship+apply+2026+pakistan"
 
     feed = feedparser.parse(url)
 
     scholarships = []
 
-    for entry in feed.entries[:10]:
-        scholarships.append({
-            "title": entry.title,
-            "link": entry.link
-        })
+    # keywords to keep only useful results
+    keywords = [
+        "scholarship",
+        "apply",
+        "funded",
+        "fully funded",
+        "fellowship",
+        "grant",
+        "financial aid",
+        "program",
+        "opportunity"
+    ]
 
-    return scholarships
+    for entry in feed.entries:
+        title = entry.title.lower()
+
+        # filter only relevant scholarship content
+        if any(word in title for word in keywords):
+            clean_title = re.sub(r'\s+', ' ', entry.title).strip()
+
+            scholarships.append({
+                "title": clean_title,
+                "link": entry.link
+            })
+
+        # limit results
+        if len(scholarships) >= 10:
+            break
+
+    output = {
+        "total_scholarships": len(scholarships),
+        "scholarships": scholarships
+    }
+
+    return output
 
 
 def main():
     data = get_scholarships()
 
-    output = {
-        "total_scholarships": len(data),
-        "scholarships": data
-    }
-
     with open("scholarships.json", "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=4)
+        json.dump(data, f, indent=4, ensure_ascii=False)
 
-    print("Updated real scholarships successfully!")
+    print("Clean scholarship data updated successfully!")
 
 
 if __name__ == "__main__":
