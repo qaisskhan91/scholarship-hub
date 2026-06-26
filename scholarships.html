@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Scholarships - Scholarship Hub</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scholarships | Scholarship Hub</title>
+<meta name="description" content="Browse fully funded scholarships worldwide.">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
 <nav>
-<a href="index.html">Home</a> |
-<a href="scholarships.html">Scholarships</a> |
-<a href="about.html">About</a> |
-<a href="privacy.html">Privacy Policy</a> |
+<a href="index.html">Home</a>
+<a href="scholarships.html">Scholarships</a>
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
 <a href="contact.html">Contact</a>
 </nav>
 
 <div class="container">
+<h1>🌍 Scholarship Database</h1>
 
-<h1>🎓 Latest Scholarships</h1>
+<input id="search" type="text" placeholder="Search scholarships...">
 
-<!-- SEARCH -->
-<input type="text" onkeyup="searchScholarships(this.value)" placeholder="Search scholarships..." class="search-box">
-
-<!-- COUNTRY FILTER -->
-<div style="margin:10px 0;">
+<div style="margin:15px 0;">
 <button onclick="filterCountry('all')">All</button>
 <button onclick="filterCountry('UK')">UK</button>
 <button onclick="filterCountry('USA')">USA</button>
@@ -31,75 +29,47 @@
 <button onclick="filterCountry('Europe')">Europe</button>
 </div>
 
-<!-- RESULTS -->
-<div id="scholarshipList">Loading scholarships...</div>
-
+<div id="results">Loading...</div>
 </div>
 
-<script>
-let allData = [];
+<footer>© 2026 Scholarship Hub</footer>
 
-// LOAD JSON DATA
+<script>
+let all=[];
 fetch("scholarships.json")
-.then(res => res.json())
-.then(data => {
-    allData = data;
-    display(allData);
-})
-.catch(error => {
-    document.getElementById("scholarshipList").innerHTML =
-    "<p style='color:red;'>Error loading scholarships.json</p>";
+.then(r=>r.json())
+.then(d=>{all=d;show(d);});
+
+function show(data){
+const box=document.getElementById("results");
+box.innerHTML="";
+if(data.length===0){box.innerHTML="<div class='card'>No scholarships found.</div>";return;}
+data.forEach(s=>{
+box.innerHTML+=`
+<div class="card">
+<h3>${s.title}</h3>
+<p><b>Country:</b> ${s.country}</p>
+<p><b>Level:</b> ${s.level}</p>
+<p><b>Deadline:</b> <span class="deadline">${s.deadline}</span></p>
+<p>${s.description}</p>
+<a class="btn" href="${s.link}" target="_blank">Official Website</a>
+</div>`;
+});
+}
+
+document.getElementById("search").addEventListener("input",e=>{
+const q=e.target.value.toLowerCase();
+show(all.filter(x=>
+x.title.toLowerCase().includes(q)||
+x.country.toLowerCase().includes(q)||
+x.level.toLowerCase().includes(q)
+));
 });
 
-// DISPLAY FUNCTION
-function display(data) {
-    let container = document.getElementById("scholarshipList");
-    container.innerHTML = "";
-
-    if (!data || data.length === 0) {
-        container.innerHTML = "<p>No scholarships found.</p>";
-        return;
-    }
-
-    data.forEach(item => {
-        container.innerHTML += `
-        <div class="card">
-            <h3>${item.title}</h3>
-            <p><b>Country:</b> ${item.country}</p>
-            <p><b>Level:</b> ${item.level}</p>
-            <p><b>Deadline:</b> ${item.deadline}</p>
-            <p>${item.description}</p>
-            <a class="btn" href="${item.link}" target="_blank">Apply Now</a>
-        </div>
-        `;
-    });
-}
-
-// SEARCH FUNCTION
-function searchScholarships(value) {
-    let filtered = allData.filter(item =>
-        item.title.toLowerCase().includes(value.toLowerCase()) ||
-        item.country.toLowerCase().includes(value.toLowerCase()) ||
-        item.level.toLowerCase().includes(value.toLowerCase())
-    );
-
-    display(filtered);
-}
-
-// COUNTRY FILTER
-function filterCountry(country) {
-    if (country === "all") {
-        display(allData);
-        return;
-    }
-
-    let filtered = allData.filter(item =>
-        item.country.toLowerCase() === country.toLowerCase()
-    );
-
-    display(filtered);
+function filterCountry(c){
+if(c==="all"){show(all);return;}
+show(all.filter(x=>x.country.toLowerCase()===c.toLowerCase()));
 }
 </script>
-
 </body>
 </html>
