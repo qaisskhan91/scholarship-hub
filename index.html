@@ -7,6 +7,7 @@
 <meta name="description" content="Search fully funded scholarships, internships and exchange programs worldwide.">
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <nav>
@@ -16,6 +17,7 @@
 <a href="privacy.html">Privacy</a>
 <a href="contact.html">Contact</a>
 <a href="disclaimer.html">Disclaimer</a>
+<a href="terms.html">Terms</a>
 </nav>
 
 <section class="hero">
@@ -28,6 +30,7 @@
 <input id="searchInput" type="text" placeholder="Search by country, degree or scholarship...">
 
 <div class="stats">
+
 <div class="stat-box">
 <h2>120+</h2>
 <p>Countries</p>
@@ -42,16 +45,19 @@
 <h2>100%</h2>
 <p>Free Access</p>
 </div>
+
 </div>
 
 <h2>Browse by Country</h2>
 
 <div class="categories">
-<div class="card"><h3>🇬🇧 UK</h3></div>
+<div class="card"><h3>🇬🇧 United Kingdom</h3></div>
 <div class="card"><h3>🇺🇸 USA</h3></div>
 <div class="card"><h3>🇩🇪 Germany</h3></div>
 <div class="card"><h3>🇨🇦 Canada</h3></div>
 <div class="card"><h3>🇦🇺 Australia</h3></div>
+<div class="card"><h3>🇯🇵 Japan</h3></div>
+<div class="card"><h3>🇨🇳 China</h3></div>
 <div class="card"><h3>🌍 More</h3></div>
 </div>
 
@@ -60,7 +66,9 @@
 <div id="latestScholarships">Loading...</div>
 
 <div class="contact-box">
+
 <h2>📢 Join our WhatsApp Community</h2>
+
 <p>Get scholarship updates directly on WhatsApp.</p>
 
 <a class="btn"
@@ -74,69 +82,95 @@ Join Community
 </div>
 
 <footer>
+
 <p>
 <a href="about.html">About</a> |
 <a href="contact.html">Contact</a> |
 <a href="privacy.html">Privacy Policy</a> |
-<a href="disclaimer.html">Disclaimer</a>
+<a href="disclaimer.html">Disclaimer</a> |
+<a href="terms.html">Terms & Conditions</a>
 </p>
 
 <p>© 2026 Scholarship Hub. All Rights Reserved.</p>
+
 </footer>
 
 <script>
+
 let scholarships=[];
 
 fetch("scholarships.json")
-.then(r=>r.json())
-.then(d=>{
-scholarships=d;
-render(d);
+.then(response=>response.json())
+.then(data=>{
+scholarships=data;
+render(data);
 });
 
 function render(list){
-const c=document.getElementById("latestScholarships");
-c.innerHTML="";
 
-list.forEach(i=>
-c.innerHTML+=`
+const container=document.getElementById("latestScholarships");
+
+container.innerHTML="";
+
+list.forEach(item=>{
+
+container.innerHTML+=`
+
 <div class="card">
-<h3>${i.title}</h3>
 
-<p><b>Country:</b> ${i.country}</p>
+<h3>${item.title}</h3>
 
-<p><b>Level:</b> ${i.level}</p>
+<p><strong>Country:</strong> ${item.country}</p>
+
+<p><strong>University:</strong> ${item.university}</p>
+
+<p><strong>Degree:</strong> ${item.degree}</p>
+
+<p><strong>Funding:</strong> ${item.funding}</p>
 
 <p class="deadline">
-Deadline: ${i.deadline}
+Deadline: ${item.deadline}
 </p>
 
-<p>${i.description}</p>
+<p>${item.description}</p>
 
 <a class="btn"
-href="${i.link}"
+href="${item.official_link}"
 target="_blank">
 Apply Now
 </a>
 
 </div>
-`);
+
+`;
+
+});
+
 }
 
 document.getElementById("searchInput")
-.addEventListener("input",e=>{
+.addEventListener("input",function(){
 
-const q=e.target.value.toLowerCase();
+const q=this.value.toLowerCase();
 
 render(
-scholarships.filter(s=>
-s.title.toLowerCase().includes(q) ||
-s.country.toLowerCase().includes(q) ||
-s.level.toLowerCase().includes(q)
+
+scholarships.filter(item=>
+
+item.title.toLowerCase().includes(q) ||
+
+item.country.toLowerCase().includes(q) ||
+
+item.degree.toLowerCase().includes(q) ||
+
+item.funding.toLowerCase().includes(q)
+
 )
+
 );
 
 });
+
 </script>
 
 </body>
