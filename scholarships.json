@@ -1,29 +1,192 @@
 [
   {
+    "id": 1,
     "title": "Chevening Scholarship",
-    "country": "UK",
-    "level": "Masters",
-    "deadline": "Nov 2026",
-    "tags": ["UK", "Masters", "Fully Funded"],
-    "link": "https://www.chevening.org/",
-    "description": "UK government fully funded scholarship for international students."
+    "country": "United Kingdom",
+    "university": "Multiple UK Universities",
+    "degree": "Master's",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.chevening.org/",
+    "description": "UK government scholarship.",
+    "featured": true,
+    "category": "Scholarship",
+    "tags": [
+      "United Kingdom",
+      "Master's",
+      "Fully Funded"
+    ]
   },
   {
+    "id": 2,
     "title": "DAAD Scholarship",
     "country": "Germany",
-    "level": "Masters & PhD",
-    "deadline": "2026",
-    "tags": ["Germany", "PhD", "Fully Funded"],
-    "link": "https://www.daad.de/en/",
-    "description": "German academic exchange scholarship for international students."
+    "university": "German Universities",
+    "degree": "Master's & PhD",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.daad.de/en/",
+    "description": "German Academic Exchange Service.",
+    "featured": true,
+    "category": "Scholarship",
+    "tags": [
+      "Germany",
+      "Master's & PhD",
+      "Fully Funded"
+    ]
   },
   {
+    "id": 3,
     "title": "Erasmus Mundus",
     "country": "Europe",
-    "level": "Masters",
-    "deadline": "2026",
-    "tags": ["Europe", "Masters", "Exchange"],
-    "link": "https://erasmus-plus.ec.europa.eu/",
-    "description": "Study in multiple European universities fully funded."
+    "university": "Multiple Universities",
+    "degree": "Master's",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://erasmus-plus.ec.europa.eu/",
+    "description": "Joint European master's.",
+    "featured": true,
+    "category": "Scholarship",
+    "tags": [
+      "Europe",
+      "Master's",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Fulbright Foreign Student Program",
+    "country": "USA",
+    "university": "US Universities",
+    "degree": "Master's & PhD",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://foreign.fulbrightonline.org/",
+    "description": "US government exchange.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "USA",
+      "Master's & PhD",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Australia Awards",
+    "country": "Australia",
+    "university": "Australian Universities",
+    "degree": "Bachelor/Master's",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.australiaawards.gov.au/",
+    "description": "Australian government.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "Australia",
+      "Bachelor/Master's",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "MEXT Scholarship",
+    "country": "Japan",
+    "university": "Japanese Universities",
+    "degree": "Bachelor/Master's/PhD",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.studyinjapan.go.jp/en/",
+    "description": "Japan government.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "Japan",
+      "Bachelor/Master's/PhD",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Turkiye Burslari",
+    "country": "T\u00fcrkiye",
+    "university": "Turkish Universities",
+    "degree": "All Levels",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.turkiyeburslari.gov.tr/",
+    "description": "T\u00fcrkiye Scholarships.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "T\u00fcrkiye",
+      "All Levels",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Chinese Government Scholarship",
+    "country": "China",
+    "university": "Chinese Universities",
+    "degree": "All Levels",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.campuschina.org/",
+    "description": "CSC scholarship.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "China",
+      "All Levels",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Global Korea Scholarship",
+    "country": "South Korea",
+    "university": "Korean Universities",
+    "degree": "All Levels",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://www.studyinkorea.go.kr/",
+    "description": "GKS.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "South Korea",
+      "All Levels",
+      "Fully Funded"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Commonwealth Scholarship",
+    "country": "United Kingdom",
+    "university": "UK Universities",
+    "degree": "Master's & PhD",
+    "funding": "Fully Funded",
+    "deadline": "UPDATE_ME",
+    "status": "Open",
+    "official_link": "https://cscuk.fcdo.gov.uk/",
+    "description": "Commonwealth.",
+    "featured": false,
+    "category": "Scholarship",
+    "tags": [
+      "United Kingdom",
+      "Master's & PhD",
+      "Fully Funded"
+    ]
   }
 ]
