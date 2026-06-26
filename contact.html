@@ -117,14 +117,30 @@ margin:0 5px;
 Have questions, suggestions, or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
 </p>
 
-<form>
-<input type="text" placeholder="Your Name" required>
+<form action="https://formspree.io/f/xaqgojwb" method="POST">
 
-<input type="email" placeholder="Your Email" required>
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
 
-<textarea rows="6" placeholder="Your Message" required></textarea>
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
 
-<button type="submit">Send Message</button>
+<textarea
+name="message"
+rows="6"
+placeholder="Your Message"
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
 </form>
 
 </div>
