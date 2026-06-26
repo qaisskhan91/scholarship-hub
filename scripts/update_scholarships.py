@@ -1,39 +1,27 @@
-import requests
-from bs4 import BeautifulSoup
-import json
-
 def get_scholarships():
-    url = "https://www.scholarshipsads.com/"  # sample public site
+    url = "https://www.scholarshipsads.com/"
 
-    response = requests.get(url)
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
 
     scholarships = []
 
-    # extract titles (simple generic method)
-    for item in soup.select("h2 a")[:10]:
+    # more flexible selectors
+    for item in soup.find_all("a")[:15]:
         title = item.text.strip()
         link = item.get("href")
 
-        scholarships.append({
-            "title": title,
-            "link": link
-        })
+        if title and len(title) > 10 and link:
+            if not link.startswith("http"):
+                link = "https://www.scholarshipsads.com" + link
+
+            scholarships.append({
+                "title": title,
+                "link": link
+            })
 
     return scholarships
-
-def main():
-    data = get_scholarships()
-
-    output = {
-        "total_scholarships": len(data),
-        "scholarships": data
-    }
-
-    with open("scholarships.json", "w") as f:
-        json.dump(output, f, indent=4)
-
-    print("Real scholarships updated!")
-
-if __name__ == "__main__":
-    main()
