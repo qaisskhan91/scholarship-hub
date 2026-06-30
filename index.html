@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholarship Hub</title>
 
     <style>
@@ -30,7 +32,7 @@
             font-size: 14px;
         }
 
-        /* Responsive Layout Grid */
+        /* Responsive Main Layout Split-Screen Grid */
         .main-layout {
             display: flex;
             gap: 20px;
@@ -39,7 +41,7 @@
             margin: auto;
         }
 
-        /* Sidebar Filters */
+        /* Opportunities Circle Styled Sidebar Filters */
         .sidebar {
             flex: 0 0 280px;
             background: white;
@@ -49,6 +51,7 @@
             height: fit-content;
             position: sticky;
             top: 20px;
+            box-sizing: border-box;
         }
 
         .sidebar h3 {
@@ -74,7 +77,7 @@
 
         .form-control {
             width: 100%;
-            padding: 8px 10px;
+            padding: 9px 11px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
@@ -86,7 +89,24 @@
             border-color: #27ae60;
         }
 
-        /* Main Feed Area */
+        .btn-reset {
+            width: 100%;
+            padding: 8px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .btn-reset:hover {
+            background: #c0392b;
+        }
+
+        /* Main Content Feed Area */
         .content-feed {
             flex: 1;
         }
@@ -107,13 +127,13 @@
         .count-badge {
             background: #2c3e50;
             color: white;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: bold;
         }
 
-        /* Cards Layout */
+        /* Enhanced Interactive Cards */
         .card {
             background: white;
             padding: 20px;
@@ -128,11 +148,11 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .card-meta {
+        .card-meta-tags {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
         }
 
         .title {
@@ -150,7 +170,6 @@
         }
 
         .badge {
-            background: #27ae60;
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -159,9 +178,16 @@
             text-transform: uppercase;
         }
 
-        .btn {
+        .deadline-text {
+            font-size: 13px;
+            color: #e74c3c;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+        }
+
+        .btn-apply {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 8px 18px;
             background: #27ae60;
             color: white;
             text-decoration: none;
@@ -171,18 +197,18 @@
             text-align: center;
         }
 
-        .btn:hover {
+        .btn-apply:hover {
             background: #219150;
         }
 
         .no-results {
             text-align: center;
-            padding: 4px 0;
+            padding: 30px 0;
             color: #777;
             font-size: 15px;
         }
 
-        /* Responsive Fixes */
+        /* Responsive Breakpoint Layout Strategy */
         @media (max-width: 768px) {
             .main-layout {
                 flex-direction: column;
@@ -195,7 +221,6 @@
         }
     </style>
 </head>
-
 <body>
 
 <header>
@@ -205,17 +230,41 @@
 
 <div class="main-layout">
     
-    <!-- 🔍 Left Sidebar Filter (Opportunities Circle Style) -->
+    <!-- 🔍 Left Sidebar Dashboard Engine -->
     <div class="sidebar">
         <h3>Filter Openings</h3>
         
+        <!-- Keyword Field Search -->
         <div class="filter-group">
             <label for="searchBar">Keyword Search</label>
             <input type="text" id="searchBar" class="form-control" placeholder="Search country, name...">
         </div>
+
+        <!-- Academic Degree Context Dropdown Selector -->
+        <div class="filter-group">
+            <label for="degreeFilter">Degree Level</label>
+            <select id="degreeFilter" class="form-control">
+                <option value="">All Degrees</option>
+                <option value="Bachelor">Bachelor / Undergraduate</option>
+                <option value="Master">Master</option>
+                <option value="PhD">PhD</option>
+            </select>
+        </div>
+
+        <!-- Financial Allocation Filter Matrix -->
+        <div class="filter-group">
+            <label for="fundingFilter">Funding Type</label>
+            <select id="fundingFilter" class="form-control">
+                <option value="">All Funding</option>
+                <option value="Fully Funded">Fully Funded</option>
+                <option value="Partial Funded">Partial Funded</option>
+            </select>
+        </div>
+
+        <button id="resetBtn" class="btn-reset">Reset Filters</button>
     </div>
 
-    <!-- 📑 Right Main Feed -->
+    <!-- 📑 Right Main Portal Stream Feed -->
     <div class="content-feed">
         <div class="feed-header">
             <h2 id="status-title">Loading Openings...</h2>
@@ -228,29 +277,30 @@
 </div>
 
 <script>
-// Global storage to filter data locally in memory
+// Running state tracking list object
 let allScholarships = [];
 
 fetch("scholarships.json")
 .then(res => res.json())
 .then(data => {
-    // Parse the inner array out safely
+    // Safely verify and extract raw array data structure
     allScholarships = data.scholarships || [];
     
     document.getElementById("status-title").innerText = "Latest Opportunities";
     
-    // Initial paint of the data matrix
+    // Execute structural painting layout pipeline engine
     renderList(allScholarships);
     
-    // Bind search typing events
-    document.getElementById("searchBar").addEventListener("input", filterListings);
+    // Setup listeners hook points configuration 
+    setupEventListeners();
 })
 .catch(err => {
     document.getElementById("status-title").innerText = "Error loading system data";
     document.getElementById("list").innerHTML = "<p style='color:red; text-align:center;'>Failed to execute fetch request against scholarships.json</p>";
+    console.error(err);
 });
 
-// Structural UI rendering logic
+// Primary UI generation rendering block execution
 function renderList(items) {
     const listContainer = document.getElementById("list");
     document.getElementById("count").innerText = items.length;
@@ -261,17 +311,26 @@ function renderList(items) {
         html = "<div class='no-results'><p>No items match your active search terms.</p></div>";
     } else {
         items.forEach(item => {
+            // Evaluates JSON value property mapping or assigns elegant defaults 
+            const fundingText = item.funding || "Opportunity";
+            const fundingColor = fundingText === "Fully Funded" ? "#27ae60" : (fundingText === "Partial Funded" ? "#f39c12" : "#34495e");
+            const degreeText = item.degree || "All Levels";
+            
             html += `
                 <div class="card">
-                    <div class="card-meta">
-                        <span class="badge">Opportunity</span>
+                    <div class="card-meta-tags">
+                        <span class="badge" style="background: ${fundingColor};">${fundingText}</span>
+                        <span class="badge" style="background: #2c3e50;">🎓 ${degreeText}</span>
+                        ${item.host_country ? `<span class="badge" style="background: #7f8c8d;">📍 ${item.host_country}</span>` : ''}
                     </div>
 
                     <a class="title" href="${item.link}" target="_blank">
                         ${item.title}
                     </a>
+                    
+                    ${item.deadline ? `<p class="deadline-text">⏰ Deadline: ${item.deadline}</p>` : ''}
 
-                    <a class="btn" href="${item.link}" target="_blank">
+                    <a class="btn-apply" href="${item.link}" target="_blank">
                         Apply Now
                     </a>
                 </div>
@@ -281,19 +340,40 @@ function renderList(items) {
     listContainer.innerHTML = html;
 }
 
-// Logic parsing search field content local loops
+// Logical calculation looping array criteria matching handler 
 function filterListings() {
     const query = document.getElementById("searchBar").value.toLowerCase();
+    const selectedDegree = document.getElementById("degreeFilter").value;
+    const selectedFunding = document.getElementById("fundingFilter").value;
     
     const filtered = allScholarships.filter(item => {
+        // String token matching validation
         const titleMatch = item.title && item.title.toLowerCase().includes(query);
-        // Fallback checks in case optional fields match keywords
-        const descMatch = item.description && item.description.toLowerCase().includes(query);
+        const countryMatch = item.host_country && item.host_country.toLowerCase().includes(query);
+        const textMatches = titleMatch || countryMatch;
         
-        return titleMatch || descMatch;
+        // Context selection structural criteria evaluation loops
+        const degreeMatches = !selectedDegree || (item.degree && item.degree.includes(selectedDegree));
+        const fundingMatches = !selectedFunding || (item.funding && item.funding === selectedFunding);
+        
+        return textMatches && degreeMatches && fundingMatches;
     });
     
     renderList(filtered);
+}
+
+// Bind interactive UI actions hooks setup execution
+function setupEventListeners() {
+    document.getElementById("searchBar").addEventListener("input", filterListings);
+    document.getElementById("degreeFilter").addEventListener("change", filterListings);
+    document.getElementById("fundingFilter").addEventListener("change", filterListings);
+    
+    document.getElementById("resetBtn").addEventListener("click", () => {
+        document.getElementById("searchBar").value = "";
+        document.getElementById("degreeFilter").value = "";
+        document.getElementById("fundingFilter").value = "";
+        renderList(allScholarships);
+    });
 }
 </script>
 
