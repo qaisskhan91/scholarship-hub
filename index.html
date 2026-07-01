@@ -1,381 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarship Hub</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f6f8;
-            color: #333;
-        }
-
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 25px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0 0 5px 0;
-            font-size: 28px;
-        }
-
-        header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 14px;
-        }
-
-        /* Responsive Main Layout Split-Screen Grid */
-        .main-layout {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        /* Opportunities Circle Styled Sidebar Filters */
-        .sidebar {
-            flex: 0 0 280px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-            box-sizing: border-box;
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 18px;
-            border-bottom: 2px solid #f4f6f8;
-            padding-bottom: 8px;
-        }
-
-        .filter-group {
-            margin-bottom: 15px;
-        }
-
-        .filter-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 6px;
-            color: #555;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 9px 11px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #27ae60;
-        }
-
-        .btn-reset {
-            width: 100%;
-            padding: 8px;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 13px;
-            margin-top: 5px;
-        }
-
-        .btn-reset:hover {
-            background: #c0392b;
-        }
-
-        /* Main Content Feed Area */
-        .content-feed {
-            flex: 1;
-        }
-
-        .feed-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .feed-header h2 {
-            margin: 0;
-            font-size: 20px;
-            color: #2c3e50;
-        }
-
-        .count-badge {
-            background: #2c3e50;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        /* Enhanced Interactive Cards */
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .card-meta-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-
-        .title {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-            font-size: 18px;
-            display: block;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .title:hover {
-            color: #27ae60;
-        }
-
-        .badge {
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .deadline-text {
-            font-size: 13px;
-            color: #e74c3c;
-            margin: 0 0 15px 0;
-            font-weight: bold;
-        }
-
-        .btn-apply {
-            display: inline-block;
-            padding: 8px 18px;
-            background: #27ae60;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .btn-apply:hover {
-            background: #219150;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 30px 0;
-            color: #777;
-            font-size: 15px;
-        }
-
-        /* Responsive Breakpoint Layout Strategy */
-        @media (max-width: 768px) {
-            .main-layout {
-                flex-direction: column;
-            }
-            .sidebar {
-                flex: none;
-                position: static;
-                width: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Global Scholarship Hub</title>
+<meta name="description" content="Global Scholarship Hub - Latest Scholarships, Fellowships, Conferences, Internships and Exchange Programs.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>🎓 Scholarship Hub</h1>
-    <p>Latest Opportunities Updated Automatically</p>
+<header class="topbar">
+  <div class="container">
+    <h1>🎓 Global Scholarship Hub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<div class="main-layout">
-    
-    <!-- 🔍 Left Sidebar Dashboard Engine -->
-    <div class="sidebar">
-        <h3>Filter Openings</h3>
-        
-        <!-- Keyword Field Search -->
-        <div class="filter-group">
-            <label for="searchBar">Keyword Search</label>
-            <input type="text" id="searchBar" class="form-control" placeholder="Search country, name...">
-        </div>
-
-        <!-- Academic Degree Context Dropdown Selector -->
-        <div class="filter-group">
-            <label for="degreeFilter">Degree Level</label>
-            <select id="degreeFilter" class="form-control">
-                <option value="">All Degrees</option>
-                <option value="Bachelor">Bachelor / Undergraduate</option>
-                <option value="Master">Master</option>
-                <option value="PhD">PhD</option>
-            </select>
-        </div>
-
-        <!-- Financial Allocation Filter Matrix -->
-        <div class="filter-group">
-            <label for="fundingFilter">Funding Type</label>
-            <select id="fundingFilter" class="form-control">
-                <option value="">All Funding</option>
-                <option value="Fully Funded">Fully Funded</option>
-                <option value="Partial Funded">Partial Funded</option>
-            </select>
-        </div>
-
-        <button id="resetBtn" class="btn-reset">Reset Filters</button>
+<section class="hero">
+  <div class="container">
+    <h2>Find Fully Funded Scholarships Worldwide</h2>
+    <p>Daily updated scholarships, fellowships, conferences, internships, exchange programs and more.</p>
+    <div class="search-box">
+      <input id="searchInput" placeholder="Search by country, university or keyword">
+      <button id="searchBtn">Search</button>
     </div>
+  </div>
+</section>
 
-    <!-- 📑 Right Main Portal Stream Feed -->
-    <div class="content-feed">
-        <div class="feed-header">
-            <h2 id="status-title">Loading Openings...</h2>
-            <span id="count" class="count-badge">0</span>
-        </div>
-        
-        <div id="list"></div>
-    </div>
+<main class="container">
 
+<section>
+<h2>Featured Categories</h2>
+<div class="grid">
+<div class="card">🎓 Scholarships</div>
+<div class="card">🌍 Exchange Programs</div>
+<div class="card">🏆 Fellowships</div>
+<div class="card">🎤 Conferences</div>
+<div class="card">💼 Internships</div>
+<div class="card">☀️ Summer Schools</div>
 </div>
+</section>
 
-<script>
-// Running state tracking list object
-let allScholarships = [];
+<section>
+<h2>Latest Opportunities</h2>
+<div id="latestScholarships" class="cards">
+<p>Loaded automatically from scholarships.json via script.js.</p>
+</div>
+</section>
 
-fetch("scholarships.json")
-.then(res => res.json())
-.then(data => {
-    // Safely verify and extract raw array data structure
-    allScholarships = data.scholarships || [];
-    
-    document.getElementById("status-title").innerText = "Latest Opportunities";
-    
-    // Execute structural painting layout pipeline engine
-    renderList(allScholarships);
-    
-    // Setup listeners hook points configuration 
-    setupEventListeners();
-})
-.catch(err => {
-    document.getElementById("status-title").innerText = "Error loading system data";
-    document.getElementById("list").innerHTML = "<p style='color:red; text-align:center;'>Failed to execute fetch request against scholarships.json</p>";
-    console.error(err);
-});
+<section>
+<h2>Popular Countries</h2>
+<div class="grid">
+<span>🇺🇸 USA</span>
+<span>🇬🇧 UK</span>
+<span>🇨🇦 Canada</span>
+<span>🇦🇺 Australia</span>
+<span>🇩🇪 Germany</span>
+<span>🇯🇵 Japan</span>
+<span>🇰🇷 South Korea</span>
+<span>🇨🇳 China</span>
+</div>
+</section>
 
-// Primary UI generation rendering block execution
-function renderList(items) {
-    const listContainer = document.getElementById("list");
-    document.getElementById("count").innerText = items.length;
-    
-    let html = "";
+<section>
+<h2>Newsletter</h2>
+<form>
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</form>
+</section>
 
-    if (items.length === 0) {
-        html = "<div class='no-results'><p>No items match your active search terms.</p></div>";
-    } else {
-        items.forEach(item => {
-            // Evaluates JSON value property mapping or assigns elegant defaults 
-            const fundingText = item.funding || "Opportunity";
-            const fundingColor = fundingText === "Fully Funded" ? "#27ae60" : (fundingText === "Partial Funded" ? "#f39c12" : "#34495e");
-            const degreeText = item.degree || "All Levels";
-            
-            html += `
-                <div class="card">
-                    <div class="card-meta-tags">
-                        <span class="badge" style="background: ${fundingColor};">${fundingText}</span>
-                        <span class="badge" style="background: #2c3e50;">🎓 ${degreeText}</span>
-                        ${item.host_country ? `<span class="badge" style="background: #7f8c8d;">📍 ${item.host_country}</span>` : ''}
-                    </div>
+<section>
+<h2>Frequently Asked Questions</h2>
+<details><summary>Is this website free?</summary><p>Yes.</p></details>
+<details><summary>How often is it updated?</summary><p>Daily using GitHub Actions.</p></details>
+</section>
 
-                    <a class="title" href="${item.link}" target="_blank">
-                        ${item.title}
-                    </a>
-                    
-                    ${item.deadline ? `<p class="deadline-text">⏰ Deadline: ${item.deadline}</p>` : ''}
+</main>
 
-                    <a class="btn-apply" href="${item.link}" target="_blank">
-                        Apply Now
-                    </a>
-                </div>
-            `;
-        });
-    }
-    listContainer.innerHTML = html;
-}
+<footer>
+<p>© 2026 Global Scholarship Hub. All rights reserved.</p>
+<p><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="disclaimer.html">Disclaimer</a></p>
+</footer>
 
-// Logical calculation looping array criteria matching handler 
-function filterListings() {
-    const query = document.getElementById("searchBar").value.toLowerCase();
-    const selectedDegree = document.getElementById("degreeFilter").value;
-    const selectedFunding = document.getElementById("fundingFilter").value;
-    
-    const filtered = allScholarships.filter(item => {
-        // String token matching validation
-        const titleMatch = item.title && item.title.toLowerCase().includes(query);
-        const countryMatch = item.host_country && item.host_country.toLowerCase().includes(query);
-        const textMatches = titleMatch || countryMatch;
-        
-        // Context selection structural criteria evaluation loops
-        const degreeMatches = !selectedDegree || (item.degree && item.degree.includes(selectedDegree));
-        const fundingMatches = !selectedFunding || (item.funding && item.funding === selectedFunding);
-        
-        return textMatches && degreeMatches && fundingMatches;
-    });
-    
-    renderList(filtered);
-}
-
-// Bind interactive UI actions hooks setup execution
-function setupEventListeners() {
-    document.getElementById("searchBar").addEventListener("input", filterListings);
-    document.getElementById("degreeFilter").addEventListener("change", filterListings);
-    document.getElementById("fundingFilter").addEventListener("change", filterListings);
-    
-    document.getElementById("resetBtn").addEventListener("click", () => {
-        document.getElementById("searchBar").value = "";
-        document.getElementById("degreeFilter").value = "";
-        document.getElementById("fundingFilter").value = "";
-        renderList(allScholarships);
-    });
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
