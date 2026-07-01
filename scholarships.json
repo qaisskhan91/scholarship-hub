@@ -1,25 +1,34 @@
-{
-    "total_scholarships": 5,
-    "scholarships": [
-        {
-            "title": "Fulbright Scholarship Program",
-            "link": "https://foreign.fulbrightonline.org/"
-        },
-        {
-            "title": "DAAD Germany Scholarships",
-            "link": "https://www.daad.de/en/"
-        },
-        {
-            "title": "Erasmus Mundus Scholarships",
-            "link": "https://www.eacea.ec.europa.eu/scholarships/emjmd-catalogue_en"
-        },
-        {
-            "title": "Commonwealth Scholarships",
-            "link": "https://cscuk.fcdo.gov.uk/apply/"
-        },
-        {
-            "title": "HEC Pakistan Scholarships",
-            "link": "https://www.hec.gov.pk/english/scholarshipsgrants/"
-        }
-    ]
-}
+[
+    {
+        "title": "Erasmus Mundus Joint Masters",
+        "degree_level": "Master",
+        "category": "Scholarship",
+        "coverage": "Fully Funded",
+        "deadline": "2027-03-01",
+        "link": "https://ec.europa.eu/programmes/erasmus-plus/opportunities/individuals/students/erasmus-mundus-joint-master-degrees_en"
+    },
+    {
+        "title": "Fulbright Foreign Student Program",
+        "degree_level": "Master/PhD",
+        "category": "Scholarship",
+        "coverage": "Fully Funded",
+        "deadline": "2026-10-15",
+        "link": "https://foreign.fulbrightprogram.org/"
+    },
+    {
+        "title": "Hubert H. Humphrey Fellowship Program",
+        "degree_level": "Professional",
+        "category": "Fellowship",
+        "coverage": "Fully Funded",
+        "deadline": "2026-11-01",
+        "link": "https://www.humphreyprogram.org/"
+    },
+    {
+        "title": "Global UGRAD Exchange Program",
+        "degree_level": "Bachelor",
+        "category": "Exchange Program",
+        "coverage": "Fully Funded",
+        "deadline": "2026-12-15",
+        "link": "https://www.worldlearning.org/program/global-undergraduate-exchange-program/"
+    }
+]
