@@ -1,34 +1,117 @@
-[
-    {
-        "title": "Erasmus Mundus Joint Masters",
-        "degree_level": "Master",
-        "category": "Scholarship",
-        "coverage": "Fully Funded",
-        "deadline": "2027-03-01",
-        "link": "https://ec.europa.eu/programmes/erasmus-plus/opportunities/individuals/students/erasmus-mundus-joint-master-degrees_en"
-    },
-    {
-        "title": "Fulbright Foreign Student Program",
-        "degree_level": "Master/PhD",
-        "category": "Scholarship",
-        "coverage": "Fully Funded",
-        "deadline": "2026-10-15",
-        "link": "https://foreign.fulbrightprogram.org/"
-    },
-    {
-        "title": "Hubert H. Humphrey Fellowship Program",
-        "degree_level": "Professional",
-        "category": "Fellowship",
-        "coverage": "Fully Funded",
-        "deadline": "2026-11-01",
-        "link": "https://www.humphreyprogram.org/"
-    },
-    {
-        "title": "Global UGRAD Exchange Program",
-        "degree_level": "Bachelor",
-        "category": "Exchange Program",
-        "coverage": "Fully Funded",
-        "deadline": "2026-12-15",
-        "link": "https://www.worldlearning.org/program/global-undergraduate-exchange-program/"
-    }
-]
+{
+    "total_scholarships": 14,
+    "scholarships": [
+        {
+            "title": "Erasmus Mundus Joint Master Degrees (EMJMD)",
+            "link": "https://www.eacea.ec.europa.eu/scholarships/emjmd-catalogue_en",
+            "funding": "Fully Funded",
+            "degree": "Master",
+            "host_country": "Europe",
+            "deadline": "2027-02-15"
+        },
+        {
+            "title": "DAAD Postgraduate Germany Scholarships",
+            "link": "https://www.daad.de/en/",
+            "funding": "Fully Funded",
+            "degree": "Master, PhD",
+            "host_country": "Germany",
+            "deadline": "2026-10-31"
+        },
+        {
+            "title": "Fulbright Foreign Student Scholarship Program (USA)",
+            "link": "https://foreign.fulbrightonline.org/",
+            "funding": "Fully Funded",
+            "degree": "Master, PhD",
+            "host_country": "United States",
+            "deadline": "2026-10-15"
+        },
+        {
+            "title": "Stipendium Hungaricum Scholarship Program",
+            "link": "https://stipendiumhungaricum.hu/",
+            "funding": "Fully Funded",
+            "degree": "Bachelor, Master, PhD",
+            "host_country": "Hungary",
+            "deadline": "2027-01-15"
+        },
+        {
+            "title": "GKS - Global Korea Scholarship",
+            "link": "https://www.studyinkorea.go.kr",
+            "funding": "Fully Funded",
+            "degree": "Bachelor, Master, PhD",
+            "host_country": "South Korea",
+            "deadline": "2027-03-10"
+        },
+        {
+            "title": "MEXT Japan Undergraduate & Research Scholarships",
+            "link": "https://www.pk.emb-japan.go.jp/itpr_en/MEXT_Scholarship.html",
+            "funding": "Fully Funded",
+            "degree": "Bachelor, Master, PhD",
+            "host_country": "Japan",
+            "deadline": "2027-05-15"
+        },
+        {
+            "title": "Hubert H. Humphrey Fellowship Program (USA)",
+            "link": "https://www.humphreyfellowship.org/",
+            "funding": "Fully Funded",
+            "degree": "Fellowship",
+            "host_country": "United States",
+            "deadline": "2026-10-01"
+        },
+        {
+            "title": "Lester B. Pearson International Fellowship (University of Toronto)",
+            "link": "https://future.utoronto.ca/pearson/about/",
+            "funding": "Fully Funded",
+            "degree": "Fellowship",
+            "host_country": "Canada",
+            "deadline": "2027-01-15"
+        },
+        {
+            "title": "CERN Senior Fellowship Programme",
+            "link": "https://careers.cern/fellows",
+            "funding": "Fully Funded",
+            "degree": "Fellowship",
+            "host_country": "Switzerland",
+            "deadline": "2026-09-01"
+        },
+        {
+            "title": "King Abdullah University (KAUST) Fellowship",
+            "link": "https://www.kaust.edu.sa/en",
+            "funding": "Fully Funded",
+            "degree": "Master, PhD, Fellowship",
+            "host_country": "Saudi Arabia",
+            "deadline": "2027-01-05"
+        },
+        {
+            "title": "Global UGRAD Exchange Program (USA)",
+            "link": "https://www.worldlearning.org/program/global-undergraduate-exchange-program/",
+            "funding": "Fully Funded",
+            "degree": "Exchange Program",
+            "host_country": "United States",
+            "deadline": "2026-12-15"
+        },
+        {
+            "title": "SUSI Summer Exchange Program for Student Leaders",
+            "link": "https://www.susi.org/",
+            "funding": "Fully Funded",
+            "degree": "Exchange Program",
+            "host_country": "United States",
+            "deadline": "2026-11-20"
+        },
+        {
+            "title": "CrossCulture Programme (CCP) Exchange Germany",
+            "link": "https://www.ifa.de/en/funding/crossculture-programme/",
+            "funding": "Fully Funded",
+            "degree": "Exchange Program",
+            "host_country": "Germany",
+            "deadline": "2026-12-31"
+        },
+        {
+            "title": "YSEALI Academic Fellows Exchange Program",
+            "link": "https://asean.usmission.gov/yseali/yseali-fellows/",
+            "funding": "Fully Funded",
+            "degree": "Exchange Program",
+            "host_country": "Southeast Asia / USA",
+            "deadline": "2026-10-25"
+        }
+    ]
+}
